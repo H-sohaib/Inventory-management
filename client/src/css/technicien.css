@@ -1047,3 +1047,58 @@ button:disabled {
     word-break: break-word;
   }
 }
+
+
+
+
+/* Image upload styles */
+.image-upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-preview {
+  position: relative;
+  width: fit-content;
+}
+
+.image-preview img {
+  max-height: 150px;
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.clear-image {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.equipment-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.equipment-image-cell {
+  width: 60px;
+}
+
+.no-image {
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}

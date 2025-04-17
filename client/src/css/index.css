@@ -155,7 +155,8 @@ input, textarea, button, select {
 section {
   position: relative;
   z-index: 2;
-  padding: var(--space-xl) var(--space-md);
+  /* padding: var(--space-xl) var(--space-md); */
+  padding: 5px var(--space-md);
   margin: var(--space-md) 0;
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
@@ -616,7 +617,7 @@ table tr:hover td {
 }
 
 .dashboard-header {
-  padding: 1.5rem 2rem;
+  padding: 5px 2rem;
   background: var(--glass-bg-light);
   backdrop-filter: blur(var(--glass-blur));
   border-bottom: 1px solid var(--glass-border-light);
@@ -645,7 +646,7 @@ table tr:hover td {
 }
 
 .dashboard-content {
-  padding: 2.5rem;
+  padding: 5px 0px;
   min-height: calc(100vh - 80px);
 }
 
