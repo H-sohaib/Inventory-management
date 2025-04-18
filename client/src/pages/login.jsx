@@ -27,12 +27,12 @@ const Login = () => {
     e.preventDefault();
 
     if (email === '') {
-      setError('Please enter your email');
+      setError('Veuillez entrer votre adresse e-mail');
       return;
     }
 
     if (password === '') {
-      setError('Please enter your password');
+      setError('Veuillez entrer votre mot de passe');
       return;
     }
 
@@ -69,11 +69,11 @@ const Login = () => {
       } else if (data.role === 'responsable') {
         navigate('/responsable');
       } else {
-        setError('Unauthorized role');
+        setError('Accès refusé');
       }
 
     } catch (err) {
-      setError(err.message || 'An error occurred during login');
+      setError(err.message || 'Une erreur est survenue');
     } finally {
       setLoading(false);
     }
@@ -94,10 +94,10 @@ const Login = () => {
 
           <nav>
             <ul className="nav-links">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/#about">About</Link></li>
+              <li><Link to="/">Acceuil</Link></li>
+              <li><Link to="/#about">À propos</Link></li>
               <li><Link to="/#services">Services</Link></li>
-              <li><Link to="/#contact">Contact</Link></li>
+              <li><Link to="/#contact">Nous Contacter</Link></li>
             </ul>
           </nav>
 
@@ -121,7 +121,7 @@ const Login = () => {
                 </svg>
               )}
             </button>
-            <Link className="cta-button" to="/login">Get Started</Link>
+            <Link className="cta-button" to="/login">Commencer</Link>
           </div>
         </div>
       </header>
@@ -134,13 +134,13 @@ const Login = () => {
         </div>
 
         <div className="login-container">
-          <h2>Login<span className="accent-dot">.</span></h2>
+          <h2>Authentification<span className="accent-dot">.</span></h2>
           {error && <p className="error-message">{error}</p>}
           <form className="login-form" onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="E-mail"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -148,7 +148,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Mot de passe"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -159,17 +159,14 @@ const Login = () => {
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                /> Remember me
+                /> Se souvenir de moi
               </label>
-              <a href="#" className="forgot-link">Forgot Password?</a>
+              <a href="#" className="forgot-link">Mot de pass oublié?</a>
             </div>
             <button type="submit" disabled={loading} className="login-button">
-              {loading ? 'Logging in...' : 'Login'}
+              {loading ? 'Authentification en cours...' : 'Login'}
             </button>
           </form>
-          <p className="signup-link">
-            Don't have an account? <a href="#">Sign up</a>
-          </p>
         </div>
       </section>
     </div>

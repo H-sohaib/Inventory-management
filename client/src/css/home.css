@@ -148,7 +148,8 @@
   padding: var(--space-xl) var(--space-md);
   overflow: hidden;
   margin-top: var(--header-height);
-  margin-bottom: 0;
+  margin-bottom: var(--space-xxl);
+  padding-top: 0;
 }
 
 /* No before pseudo-element for hero to allow full background visibility */
@@ -213,7 +214,7 @@
   text-align: center;
   max-width: 900px;
   z-index: 1;
-  padding: var(--space-lg);
+  padding: var(--space-xl);
   border-radius: var(--radius-lg);
   background: var(--glass-bg-light);
   backdrop-filter: blur(var(--glass-blur));
@@ -440,6 +441,47 @@
   background: var(--glass-bg-dark);
 }
 
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.feature-card {
+  text-align: center;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border-light);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.dark-mode .feature-card {
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+}
+
+.feature-card h4 {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.feature-card p {
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.feature-link {
+  margin-top: auto;
+}
+
 .feature-icon {
   margin-bottom: var(--space-md);
 }
@@ -485,7 +527,7 @@
 }
 
 .testimonial-card {
-  padding: var(--space-lg);
+  padding: var(--space-xl);
   border-radius: var(--radius-lg);
   background: var(--glass-bg-light);
   backdrop-filter: blur(var(--glass-blur));
@@ -561,10 +603,26 @@
 
 .contact-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-xl);
   max-width: var(--content-width);
   margin: 0 auto;
+  padding: 0;
+}
+
+.contact-info, .contact-form {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form {
+  padding: var(--space-xl);
+  justify-content: center;
+}
+
+.contact-info {
+  padding: var(--space-xl);
 }
 
 .contact-description {
@@ -597,23 +655,6 @@
 .contact-item p {
   color: var(--text-secondary);
   margin-bottom: 0;
-}
-
-.contact-form {
-  padding: var(--space-lg);
-  border-radius: var(--radius-lg);
-  background: var(--glass-bg-light);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border-light);
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.dark-mode .contact-form {
-  background: var(--glass-bg-dark);
-  border: 1px solid var(--glass-border-dark);
 }
 
 /* ================ FOOTER ================ */
@@ -730,6 +771,13 @@
   animation: pulse 2s infinite;
 }
 
+/* Add this new class for consistent section padding */
+.section-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
 /* ================ HOME-SPECIFIC RESPONSIVE DESIGN ================ */
 @media screen and (max-width: 991px) {
   .nav-links {
@@ -761,7 +809,15 @@
   }
   
   .contact-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
+  
+  .contact-info, .contact-form {
+    min-height: auto; /* Remove fixed height on mobile */
+  }
+  
+  .contact-form {
+    padding: var(--space-lg);
   }
   
   .footer-top {
@@ -788,6 +844,25 @@
 }
 
 @media screen and (max-width: 576px) {
+  section {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-md) 0;
+  }
+  
+  .section-container {
+    padding: var(--space-md);
+  }
+
+  .hero,
+  .hero-content,
+  .contact-form,
+  .contact-info,
+  .feature-card,
+  .testimonial-card {
+    padding: var(--space-lg);
+  }
+
   .hero-content h1 {
     font-size: clamp(2rem, 7vw, 3rem);
   }
@@ -811,4 +886,26 @@
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* Standardize section spacing */
+section {
+  margin-top: var(--space-xxl);
+  margin-bottom: var(--space-xxl);
+  padding: var(--space-xl) 0;
+}
+
+/* Increase spacing between sections */
+section {
+  margin: var(--space-xl) 0;  /* Increased from var(--space-md) 0 */
+}
+
+/* Specific margins for certain sections for better rhythm */
+.about-section, .services-section, .testimonials-section {
+  margin-top: var(--space-xxl);
+}
+
+/* Contact section adjustments */
+.contact-section {
+  margin-top: var(--space-xxl);
 }

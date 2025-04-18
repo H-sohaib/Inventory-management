@@ -242,24 +242,6 @@
   transform: none;
 }
 
-.signup-link {
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-}
-
-.signup-link a {
-  color: var(--primary-color);
-  font-weight: 600;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.signup-link a:hover {
-  color: var(--primary-dark);
-  text-decoration: underline;
-}
-
 /* Login-specific animation */
 @keyframes fadeInUp {
   from {
